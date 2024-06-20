@@ -11,20 +11,18 @@
         <a class="navbar-brand" href="{{ url('/') }}">PRA-c3</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tournements.index') }}">Toernooien</a>
+                        <a class="nav-link" href="{{ route('Toernooien') }}">Toernooien</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('teams.index') }}">Teams</a>
+                        <a class="nav-link" href="{{ route('Teams') }}">Teams</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('results.index') }}">Wedstrijdresultaten</a>
+                        <a class="nav-link" href="{{ route('Wedstrijdresultaten') }}">Wedstrijdresultaten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('members.index') }}">Leden</a>
+                        <a class="nav-link" href="{{ route('Leden') }}">Leden</a>
                     </li>
-                @endauth
             </ul>
             <ul class="navbar-nav ml-auto">
                 @guest
