@@ -24,6 +24,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/matches', [MatchController::class, 'index'])->name('matches.index');
+Route::get('/matches/create', [MatchController::class, 'create'])->name('matches.create');
+Route::get('/matches{notice}/edit', [MatchController::class, 'edit'])->name('matches.edit');
+Route::post('/matches', [MatchController::class, 'store'])->name('matches.store');
+Route::put('/matches/{notice}', [MatchController::class, 'update'])->name('matches.update');
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('teams', TeamController::class);
     Route::resource('members', MemberController::class);

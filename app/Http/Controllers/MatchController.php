@@ -6,17 +6,17 @@ use App\Models\Matches;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
-class MatchesController extends Controller
+class MatchController extends Controller
 {
     public function index()
     {
         $matcheses = Matches::all();
-        return view('matcheses.index', compact('matcheses'));
+        return view('matches.index', compact('matches'));
     }
 
     public function show(Matches $matches)
     {
-        return view('matcheses.show', compact('matches'));
+        return view('matches.show', compact('matches'));
     }
 
     public function createMatches()
@@ -24,7 +24,7 @@ class MatchesController extends Controller
         $teams = Team::inRandomOrder()->take(2)->get();
 
         if (count($teams) < 2) {
-            return redirect()->route('matcheses.index')->with('error', 'Niet genoeg teams voor een wedstrijd.');
+            return redirect()->route('matches.index')->with('error', 'Niet genoeg teams voor een wedstrijd.');
         }
 
         $matches = Matches::create([
@@ -32,7 +32,7 @@ class MatchesController extends Controller
             'team2_id' => $teams[1]->id,
         ]);
 
-        return redirect()->route('matcheses.show', $matches->id);
+        return redirect()->route('matches.show', $matches->id);
     }
 
     public function generateOutcome(Matches $matches)
@@ -42,6 +42,6 @@ class MatchesController extends Controller
             'score2' => rand(0, 5),
         ]);
 
-        return redirect()->route('matcheses.show', $matches->id);
+        return redirect()->route('matches.show', $matches->id);
     }
 }
