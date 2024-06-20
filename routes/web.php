@@ -21,7 +21,7 @@ use App\Http\Controllers\MatchController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Home');
 });
 
 Route::get('/matches', [MatchController::class, 'index'])->name('matches.index');
@@ -29,6 +29,23 @@ Route::get('/matches/create', [MatchController::class, 'create'])->name('matches
 Route::get('/matches{notice}/edit', [MatchController::class, 'edit'])->name('matches.edit');
 Route::post('/matches', [MatchController::class, 'store'])->name('matches.store');
 Route::put('/matches/{notice}', [MatchController::class, 'update'])->name('matches.update');
+
+Route::get('/tournements', function (){
+    return view('tournements.index');
+})->name("Toernooien");
+
+Route::get('/teams', function (){
+    return view('teams.index');
+})->name("Teams");
+
+Route::get('/results', function (){
+    return view('results.index');
+})->name("Wedstrijdresultaten");
+
+Route::get('/members', function (){
+    return view('members.index');
+})->name("Leden");
+
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('teams', TeamController::class);
