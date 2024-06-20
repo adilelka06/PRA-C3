@@ -9,13 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('goals', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+    public function up()
+{
+    Schema::create('goals', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('team_id')->constrained();
+        $table->integer('doelen');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.

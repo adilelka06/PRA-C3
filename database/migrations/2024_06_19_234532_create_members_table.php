@@ -9,19 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('matches', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+    public function up()
+{
+    Schema::create('members', function (Blueprint $table) {
+        $table->id();
+        $table->string('naam');
+        $table->foreignId('team_id')->constrained();
+        $table->timestamps();
+    });
+}
+
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('matches');
+        Schema::dropIfExists('members');
     }
 };
