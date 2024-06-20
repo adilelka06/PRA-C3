@@ -20,6 +20,10 @@ use App\Http\Controllers\MatchController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('teams', TeamController::class);
     Route::resource('members', MemberController::class);
