@@ -10,7 +10,7 @@ class MatchController extends Controller
 {
     public function index()
     {
-        $matcheses = Matches::all();
+        $matches = Matches::all();
         return view('matches.index', compact('matches'));
     }
 
