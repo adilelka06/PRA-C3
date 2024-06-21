@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <h1>Toernooien</h1>
-    <a href="{{ route('tournements.create') }}" class="btn btn-primary">Nieuw Toernooi</a>
     <table class="table">
         <thead>
             <tr>

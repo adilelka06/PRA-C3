@@ -26,25 +26,33 @@ Route::get('/', function () {
 
 Route::get('/matches', [MatchController::class, 'index'])->name('matches.index');
 Route::get('/matches/create', [MatchController::class, 'create'])->name('matches.create');
-Route::get('/matches{notice}/edit', [MatchController::class, 'edit'])->name('matches.edit');
+Route::get('/matches{match}/edit', [MatchController::class, 'edit'])->name('matches.edit');
 Route::post('/matches', [MatchController::class, 'store'])->name('matches.store');
-Route::put('/matches/{notice}', [MatchController::class, 'update'])->name('matches.update');
+Route::put('/matches/{match}', [MatchController::class, 'update'])->name('matches.update');
 
-Route::get('/tournements', function (){
-    return view('tournements.index');
-})->name("Toernooien");
+Route::get('/tournements', [TournementController::class, 'index'])->name('tournements.index');
+Route::get('/tournements/create', [TournementController::class, 'create'])->name('tournements.create');
+Route::get('/tournements/{tournement}/edit', [TournementController::class, 'edit'])->name('tournements.edit');
+Route::post('/tournements', [TournementController::class, 'store'])->name('tournements.store');
+Route::put('/tournements/{tournement}', [TournementController::class, 'update'])->name('tournements.update');
 
-Route::get('/teams', function (){
-    return view('teams.index');
-})->name("Teams");
+Route::get('/Teams', [TeamController::class, 'index'])->name('Teams.index');
+Route::get('/Teams/create', [TeamController::class, 'create'])->name('Teams.create');
+Route::get('/Teams/{notice}/edit', [TeamController::class, 'edit'])->name('Teams.edit');
+Route::post('/Teams', [TeamController::class, 'store'])->name('Teams.store');
+Route::put('/Teams/{notice}', [TeamController::class, 'update'])->name('Teams.update');
 
-Route::get('/results', function (){
-    return view('results.index');
-})->name("Wedstrijdresultaten");
+Route::get('/Results', [MatchController::class, 'index'])->name('Results.index');
+Route::get('/Results/create', [MatchController::class, 'create'])->name('Results.create');
+Route::get('/Results/{notice}/edit', [MatchController::class, 'edit'])->name('Results.edit');
+Route::post('/Results', [MatchController::class, 'store'])->name('Results.store');
+Route::put('/Results/{notice}', [MatchController::class, 'update'])->name('Results.update');
 
-Route::get('/members', function (){
-    return view('members.index');
-})->name("Leden");
+Route::get('/Members', [MatchController::class, 'index'])->name('Members.index');
+Route::get('/Members/create', [MatchController::class, 'create'])->name('Members.create');
+Route::get('/Members/{notice}/edit', [MatchController::class, 'edit'])->name('Members.edit');
+Route::post('/Members', [MatchController::class, 'store'])->name('Members.store');
+Route::put('/Members/{notice}', [MatchController::class, 'update'])->name('Members.update');
 
 
 Route::middleware(['auth'])->group(function () {
