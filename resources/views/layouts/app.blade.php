@@ -10,20 +10,20 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{{ url('/') }}">PRA-c3</a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Toernooien') }}">Toernooien</a>
+                        <a class="nav-link" href="{{ route('tournements.index') }}">Toernooien</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Teams') }}">Teams</a>
+                        <a class="nav-link" href="{{ route('Teams.index') }}">Teams</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Wedstrijdresultaten') }}">Wedstrijdresultaten</a>
+                        <a class="nav-link" href="{{ route('Results.index') }}">Wedstrijdresultaten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('Leden') }}">Leden</a>
+                        <a class="nav-link" href="{{ route('Members.index') }}">Leden</a>
                     </li>
-            </ul>
+                </ul>
             <ul class="navbar-nav ml-auto">
                 @guest
                     <li class="nav-item">
